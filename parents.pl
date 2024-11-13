@@ -16,3 +16,9 @@ parent(alice, betsy).
 
 parent(bob, carl).
 parent(bob, charlie).
+
+get_grandchild :-
+    parent(albert, X),
+    parent(X, Y),
+    write('Albert\'s grandchild is '),
+    write(Y), nl.
