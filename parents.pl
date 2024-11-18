@@ -22,3 +22,13 @@ get_grandchild :-
     parent(X, Y),
     write('Albert\'s grandchild is '),
     write(Y), nl.
+
+brother(bob, bill).
+
+grand_parent(X, Y) :-
+    parent(Z, X),
+    parent(Y, Z).
+
+blushes(X) :- human(X).
+human(derek).
+
