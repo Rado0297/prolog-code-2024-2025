@@ -89,8 +89,8 @@ preLast(PreLast, [PreLast, _]).
 % [A1|A] B [A1|List] List=append(A, B)
 % [] B B
 
-append([], B, B).
-append([A1|A], B, [A1|List]) :- append(A, B, List).
+appendCust([], B, B).
+appendCust([A1|A], B, [A1|List]) :- appendCust(A, B, List).
 
 member1(X, L) :- append(_, [X|_], L).
 

@@ -94,3 +94,7 @@ working_directory(CWD, CWD). - проверява коя ни е работна�
 Добавяне на файл в swi-Prolog:
 - първи вариант, [<name_of_file>].
 - втори вариант,  ensure_loaded('Seminar_7_8am-11am.pl').
+
+
+
+cd('/Users/radoslav/Documents/University/Extra_Year_3/Logical_Programming/Materials_2024-2025/Prolog_code/prolog-code-2024-2025/Yana_prolog_repo_tasks').
