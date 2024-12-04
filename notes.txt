@@ -97,4 +97,3 @@ working_directory(CWD, CWD). - проверява коя ни е работна�
 
 
 
-cd('/Users/radoslav/Documents/University/Extra_Year_3/Logical_Programming/Materials_2024-2025/Prolog_code/prolog-code-2024-2025/Yana_prolog_repo_tasks').

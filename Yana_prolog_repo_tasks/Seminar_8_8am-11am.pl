@@ -89,3 +89,46 @@ palindrome(L) :- reverseCust(L, L).
 palindrome1([]).
 palindrome1([_]).
 palindrome1(L) :- append([H|Rest], [H], L), palindrome1(Rest).
+
+% 7. union, intersection, difference, subset, equal
+union(A, B, X) :- member(X, A); member(X, B).
+intersection(A, B, X) :- member(X, A), member(X, B).
+difference(A, B, X) :- member(X, A), not(member(X, B)).
+equal(A, B) :- isSubset(A, B), isSubset(B, A).
+
+% 6.IV.2013 г.
+% Задача 2. Казваме, че списък X мажорира списък Y , ако
+% всички елементи на X са елементи на Y . Да се дефинира
+% на пролог предикат q3(L,M), който по даден списък от спи-
+% съци L намира списък M, който съдържа всички елементи
+% на L и в който никой елемент не се мажорира от елемент,
+% намиращ се след него в списъка.
+maj(X, Y) :- isSubset(X, Y).
+q3(L, M) :- toSet(L, L1), permutation2(L1, M), not(( append(_, [X|T], M), member(Y, T), maj(Y, X) )).
+toSet([], []).
+toSet([H|T], [H|R]) :- toSet(T, R), not(member(H, R)).
+toSet([H|T], R) :- toSet(T, R), member(H, R).
+
+% 6.IV.2013 г.
+% Задача 1. Да се дефинира на пролог предикат q2(L), който
+% по даден списък от различни списъци L проверява дали
+% всеки два различни елемента на L имат общ елемент, който
+% не принадлежи на някой елемент на L.
+q2(L) :- not(( remove(X, L, L1), remove(Y, L1, L2),
+                not(( member(T, X), member(T, Y), remove(Z, L2, _), not(member(T, Z)) )) )).
+
+
+% q2([[1,2,3],[3,4,5],[5,6,7],[1,3,7,8,9]]). - make a good example to execute and return true
+
+% [1,2,3]
+% [1,4,5]
+% [9,4,7]
+% [9,8,11]
+
+% q2([[1,2,3], [1,4,5], [9,4,7]])....
+
+% 6.IV.2013 г.
+% Задача 1. Да се дефинира на пролог предикат q(L), който
+% по даден списък от различни списъци L проверява дали
+% в L съществуват два различни елемента, които имат общ
+% елемент, който не принадлежи на никой друг елемент на L.
